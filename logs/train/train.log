@@ -1,0 +1,2237 @@
+[INFO] initializing the model...
+[INFO] normalization (mean, std) = (tensor([0.2217, 0.1983, 0.2105]), tensor([0.1880, 0.1719, 0.1816]))
+-------------------
+[INFO] DATASETS SIZES: 
+train_dataset size: 39209
+valid_dataset size: 12630
+test_dataset size: 12630
+-------------------
+
+[INFO] DATASETS PATHS: 
+train_dataset path: ../data/GTRSB/Train
+valid_dataset path: ../data/GTRSB/Test
+test_dataset path: ../data/GTRSB/Test
+-------------------
+
+[INFO] HYPER-PARAMETERS: 
+INIT_LR:   0.0001
+LR_DECAY:   True
+BATCH_SIZE: 16
+EPOCHS:     300
+==========================================================================================================================================================================
+Layer (type:depth-idx)                        Input Shape               Output Shape              Param #                   Kernel Shape              Mult-Adds
+==========================================================================================================================================================================
+MultiAngleScaleVisionTransformer              [1, 3, 48, 48]            [1, 43]                   5,120                     --                        --
+├─Conv2d: 1-1                                 [1, 3, 48, 48]            [1, 64, 48, 48]           256                       [1, 1]                    589,824
+├─BatchNorm2d: 1-2                            [1, 64, 48, 48]           [1, 64, 48, 48]           128                       --                        128
+├─Conv2d: 1-3                                 [1, 64, 48, 48]           [1, 128, 48, 46]          24,704                    [1, 3]                    54,546,432
+├─BatchNorm2d: 1-4                            [1, 128, 48, 46]          [1, 128, 48, 46]          256                       --                        256
+├─Conv2d: 1-5                                 [1, 128, 48, 46]          [1, 256, 48, 42]          164,096                   [1, 5]                    330,817,536
+├─BatchNorm2d: 1-6                            [1, 256, 48, 42]          [1, 256, 48, 42]          512                       --                        512
+├─Conv2d: 1-7                                 [1, 256, 48, 6]           [1, 512, 48, 1]           786,944                   [1, 6]                    37,773,312
+├─BatchNorm2d: 1-8                            [1, 512, 48, 1]           [1, 512, 48, 1]           1,024                     --                        1,024
+├─Conv2d: 1-9                                 [1, 512, 48, 1]           [1, 512, 46, 1]           786,944                   [3, 1]                    36,199,424
+├─BatchNorm2d: 1-10                           [1, 512, 46, 1]           [1, 512, 46, 1]           1,024                     --                        1,024
+├─Conv2d: 1-11                                [1, 512, 46, 1]           [1, 512, 44, 1]           786,944                   [3, 1]                    34,625,536
+├─BatchNorm2d: 1-12                           [1, 512, 44, 1]           [1, 512, 44, 1]           1,024                     --                        1,024
+├─Conv2d: 1-13                                [1, 512, 44, 1]           [1, 512, 42, 1]           786,944                   [3, 1]                    33,051,648
+├─BatchNorm2d: 1-14                           [1, 512, 42, 1]           [1, 512, 42, 1]           1,024                     --                        1,024
+├─Conv2d: 1-15                                [1, 512, 42, 1]           [1, 512, 40, 1]           786,944                   [3, 1]                    31,477,760
+├─BatchNorm2d: 1-16                           [1, 512, 40, 1]           [1, 512, 40, 1]           1,024                     --                        1,024
+├─AngleDropout: 1-17                          [1, 512, 8, 1]            [1, 512, 8, 1]            --                        --                        --
+├─Flatten: 1-18                               [1, 512, 8, 1]            [1, 512, 8]               --                        --                        --
+├─Dropout: 1-19                               [1, 9, 512]               [1, 9, 512]               --                        --                        --
+├─TransformerEncoder: 1-20                    [1, 9, 512]               [1, 9, 512]               --                        --                        --
+│    └─ModuleList: 2-1                        --                        --                        --                        --                        --
+│    │    └─TransformerEncoderLayer: 3-1      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-2      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-3      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-4      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-5      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-6      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-7      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+│    │    └─TransformerEncoderLayer: 3-8      [1, 9, 512]               [1, 9, 512]               1,577,984                 --                        0
+├─Sequential: 1-21                            [1, 512]                  [1, 43]                   --                        --                        --
+│    └─LayerNorm: 2-2                         [1, 512]                  [1, 512]                  1,024                     --                        1,024
+│    └─Linear: 2-3                            [1, 512]                  [1, 43]                   22,059                    --                        22,059
+==========================================================================================================================================================================
+Total params: 16,781,867
+Trainable params: 16,781,867
+Non-trainable params: 0
+Total mult-adds (M): 559.11
+==========================================================================================================================================================================
+Input size (MB): 0.03
+Forward/backward pass size (MB): 16.95
+Params size (MB): 16.61
+Estimated Total Size (MB): 33.58
+==========================================================================================================================================================================
+optimizer:     Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    initial_lr: 0.0001
+    lr: 0.0001
+    maximize: False
+    weight_decay: 0
+)
+scheduler:     <torch.optim.lr_scheduler.ExponentialLR object at 0x7faa83e2edf0>
+loss_function: CrossEntropyLoss()
+-------------------
+
+[INFO] training the network...
+[INFO] EPOCH: 1/300
+Train loss: 2.634290, Train accuracy: 0.2580
+Val loss: 1.998491, Val accuracy: 0.4124
+Learning rate: 0.000100 -> 0.000099
+Epoch time: 137.92s
+-------------------
+
+[INFO] EPOCH: 2/300
+Train loss: 1.734042, Train accuracy: 0.4471
+Val loss: 1.096728, Val accuracy: 0.6062
+Learning rate: 0.000099 -> 0.000098
+Epoch time: 138.09s
+-------------------
+
+[INFO] EPOCH: 3/300
+Train loss: 1.309168, Train accuracy: 0.5821
+Val loss: 0.737215, Val accuracy: 0.7522
+Learning rate: 0.000098 -> 0.000097
+Epoch time: 138.38s
+-------------------
+
+[INFO] EPOCH: 4/300
+Train loss: 0.990915, Train accuracy: 0.6890
+Val loss: 0.542238, Val accuracy: 0.8363
+Learning rate: 0.000097 -> 0.000096
+Epoch time: 139.01s
+-------------------
+
+[INFO] EPOCH: 5/300
+Train loss: 0.794885, Train accuracy: 0.7533
+Val loss: 0.455631, Val accuracy: 0.8639
+Learning rate: 0.000096 -> 0.000095
+Epoch time: 139.13s
+-------------------
+
+[INFO] EPOCH: 6/300
+Train loss: 0.663997, Train accuracy: 0.7958
+Val loss: 0.367072, Val accuracy: 0.8943
+Learning rate: 0.000095 -> 0.000094
+Epoch time: 137.64s
+-------------------
+
+[INFO] EPOCH: 7/300
+Train loss: 0.578535, Train accuracy: 0.8231
+Val loss: 0.318018, Val accuracy: 0.9063
+Learning rate: 0.000094 -> 0.000093
+Epoch time: 138.91s
+-------------------
+
+[INFO] EPOCH: 8/300
+Train loss: 0.517742, Train accuracy: 0.8398
+Val loss: 0.275746, Val accuracy: 0.9179
+Learning rate: 0.000093 -> 0.000092
+Epoch time: 138.63s
+-------------------
+
+[INFO] EPOCH: 9/300
+Train loss: 0.471885, Train accuracy: 0.8544
+Val loss: 0.306810, Val accuracy: 0.9125
+Learning rate: 0.000092 -> 0.000091
+Epoch time: 138.78s
+-------------------
+
+[INFO] EPOCH: 10/300
+Train loss: 0.442417, Train accuracy: 0.8630
+Val loss: 0.248127, Val accuracy: 0.9267
+Learning rate: 0.000091 -> 0.000090
+Epoch time: 138.25s
+-------------------
+
+[INFO] EPOCH: 11/300
+Train loss: 0.409282, Train accuracy: 0.8741
+Val loss: 0.217690, Val accuracy: 0.9321
+Learning rate: 0.000090 -> 0.000090
+Epoch time: 138.57s
+-------------------
+
+[INFO] EPOCH: 12/300
+Train loss: 0.380880, Train accuracy: 0.8833
+Val loss: 0.196729, Val accuracy: 0.9427
+Learning rate: 0.000090 -> 0.000089
+Epoch time: 139.42s
+-------------------
+
+[INFO] EPOCH: 13/300
+Train loss: 0.367883, Train accuracy: 0.8886
+Val loss: 0.193667, Val accuracy: 0.9416
+Learning rate: 0.000089 -> 0.000088
+Epoch time: 138.29s
+-------------------
+
+[INFO] EPOCH: 14/300
+Train loss: 0.341685, Train accuracy: 0.8947
+Val loss: 0.181225, Val accuracy: 0.9457
+Learning rate: 0.000088 -> 0.000087
+Epoch time: 138.37s
+-------------------
+
+[INFO] EPOCH: 15/300
+Train loss: 0.325393, Train accuracy: 0.9005
+Val loss: 0.177186, Val accuracy: 0.9474
+Learning rate: 0.000087 -> 0.000086
+Epoch time: 138.32s
+-------------------
+
+[INFO] EPOCH: 16/300
+Train loss: 0.311260, Train accuracy: 0.9033
+Val loss: 0.143653, Val accuracy: 0.9543
+Learning rate: 0.000086 -> 0.000085
+Epoch time: 137.51s
+-------------------
+
+[INFO] EPOCH: 17/300
+Train loss: 0.297198, Train accuracy: 0.9082
+Val loss: 0.159417, Val accuracy: 0.9520
+Learning rate: 0.000085 -> 0.000084
+Epoch time: 138.10s
+-------------------
+
+[INFO] EPOCH: 18/300
+Train loss: 0.288663, Train accuracy: 0.9094
+Val loss: 0.163275, Val accuracy: 0.9553
+Learning rate: 0.000084 -> 0.000083
+Epoch time: 139.11s
+-------------------
+
+[INFO] EPOCH: 19/300
+Train loss: 0.273050, Train accuracy: 0.9165
+Val loss: 0.147727, Val accuracy: 0.9565
+Learning rate: 0.000083 -> 0.000083
+Epoch time: 138.75s
+-------------------
+
+[INFO] EPOCH: 20/300
+Train loss: 0.264953, Train accuracy: 0.9176
+Val loss: 0.155845, Val accuracy: 0.9530
+Learning rate: 0.000083 -> 0.000082
+Epoch time: 138.43s
+-------------------
+
+[INFO] EPOCH: 21/300
+Train loss: 0.251711, Train accuracy: 0.9209
+Val loss: 0.181256, Val accuracy: 0.9488
+Learning rate: 0.000082 -> 0.000081
+Epoch time: 138.36s
+-------------------
+
+[INFO] EPOCH: 22/300
+Train loss: 0.253337, Train accuracy: 0.9218
+Val loss: 0.149798, Val accuracy: 0.9568
+Learning rate: 0.000081 -> 0.000080
+Epoch time: 138.28s
+-------------------
+
+[INFO] EPOCH: 23/300
+Train loss: 0.235736, Train accuracy: 0.9264
+Val loss: 0.156053, Val accuracy: 0.9553
+Learning rate: 0.000080 -> 0.000079
+Epoch time: 138.10s
+-------------------
+
+[INFO] EPOCH: 24/300
+Train loss: 0.234390, Train accuracy: 0.9268
+Val loss: 0.137137, Val accuracy: 0.9583
+Learning rate: 0.000079 -> 0.000079
+Epoch time: 139.33s
+-------------------
+
+[INFO] EPOCH: 25/300
+Train loss: 0.224375, Train accuracy: 0.9299
+Val loss: 0.139755, Val accuracy: 0.9570
+Learning rate: 0.000079 -> 0.000078
+Epoch time: 138.48s
+-------------------
+
+[INFO] EPOCH: 26/300
+Train loss: 0.218355, Train accuracy: 0.9314
+Val loss: 0.152992, Val accuracy: 0.9582
+Learning rate: 0.000078 -> 0.000077
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 27/300
+Train loss: 0.211554, Train accuracy: 0.9328
+Val loss: 0.132327, Val accuracy: 0.9596
+Learning rate: 0.000077 -> 0.000076
+Epoch time: 138.13s
+-------------------
+
+[INFO] EPOCH: 28/300
+Train loss: 0.208478, Train accuracy: 0.9329
+Val loss: 0.119707, Val accuracy: 0.9623
+Learning rate: 0.000076 -> 0.000075
+Epoch time: 138.78s
+-------------------
+
+[INFO] EPOCH: 29/300
+Train loss: 0.203839, Train accuracy: 0.9365
+Val loss: 0.140188, Val accuracy: 0.9619
+Learning rate: 0.000075 -> 0.000075
+Epoch time: 139.02s
+-------------------
+
+[INFO] EPOCH: 30/300
+Train loss: 0.200531, Train accuracy: 0.9366
+Val loss: 0.166929, Val accuracy: 0.9512
+Learning rate: 0.000075 -> 0.000074
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 31/300
+Train loss: 0.196434, Train accuracy: 0.9382
+Val loss: 0.136626, Val accuracy: 0.9615
+Learning rate: 0.000074 -> 0.000073
+Epoch time: 137.88s
+-------------------
+
+[INFO] EPOCH: 32/300
+Train loss: 0.196720, Train accuracy: 0.9383
+Val loss: 0.132843, Val accuracy: 0.9659
+Learning rate: 0.000073 -> 0.000072
+Epoch time: 139.50s
+-------------------
+
+[INFO] EPOCH: 33/300
+Train loss: 0.182869, Train accuracy: 0.9434
+Val loss: 0.122592, Val accuracy: 0.9659
+Learning rate: 0.000072 -> 0.000072
+Epoch time: 138.28s
+-------------------
+
+[INFO] EPOCH: 34/300
+Train loss: 0.182962, Train accuracy: 0.9422
+Val loss: 0.110341, Val accuracy: 0.9685
+Learning rate: 0.000072 -> 0.000071
+Epoch time: 139.11s
+-------------------
+
+[INFO] EPOCH: 35/300
+Train loss: 0.177610, Train accuracy: 0.9445
+Val loss: 0.147934, Val accuracy: 0.9589
+Learning rate: 0.000071 -> 0.000070
+Epoch time: 138.82s
+-------------------
+
+[INFO] EPOCH: 36/300
+Train loss: 0.172951, Train accuracy: 0.9461
+Val loss: 0.105190, Val accuracy: 0.9683
+Learning rate: 0.000070 -> 0.000070
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 37/300
+Train loss: 0.174248, Train accuracy: 0.9454
+Val loss: 0.122571, Val accuracy: 0.9626
+Learning rate: 0.000070 -> 0.000069
+Epoch time: 138.58s
+-------------------
+
+[INFO] EPOCH: 38/300
+Train loss: 0.168876, Train accuracy: 0.9470
+Val loss: 0.118997, Val accuracy: 0.9642
+Learning rate: 0.000069 -> 0.000068
+Epoch time: 138.61s
+-------------------
+
+[INFO] EPOCH: 39/300
+Train loss: 0.165268, Train accuracy: 0.9495
+Val loss: 0.120889, Val accuracy: 0.9667
+Learning rate: 0.000068 -> 0.000068
+Epoch time: 138.35s
+-------------------
+
+[INFO] EPOCH: 40/300
+Train loss: 0.165237, Train accuracy: 0.9486
+Val loss: 0.124273, Val accuracy: 0.9666
+Learning rate: 0.000068 -> 0.000067
+Epoch time: 138.32s
+-------------------
+
+[INFO] EPOCH: 41/300
+Train loss: 0.161554, Train accuracy: 0.9489
+Val loss: 0.131218, Val accuracy: 0.9660
+Learning rate: 0.000067 -> 0.000066
+Epoch time: 137.75s
+-------------------
+
+[INFO] EPOCH: 42/300
+Train loss: 0.154076, Train accuracy: 0.9503
+Val loss: 0.098079, Val accuracy: 0.9702
+Learning rate: 0.000066 -> 0.000066
+Epoch time: 138.61s
+-------------------
+
+[INFO] EPOCH: 43/300
+Train loss: 0.148734, Train accuracy: 0.9528
+Val loss: 0.123229, Val accuracy: 0.9648
+Learning rate: 0.000066 -> 0.000065
+Epoch time: 138.06s
+-------------------
+
+[INFO] EPOCH: 44/300
+Train loss: 0.153472, Train accuracy: 0.9519
+Val loss: 0.112286, Val accuracy: 0.9705
+Learning rate: 0.000065 -> 0.000064
+Epoch time: 138.98s
+-------------------
+
+[INFO] EPOCH: 45/300
+Train loss: 0.149643, Train accuracy: 0.9532
+Val loss: 0.115611, Val accuracy: 0.9690
+Learning rate: 0.000064 -> 0.000064
+Epoch time: 138.84s
+-------------------
+
+[INFO] EPOCH: 46/300
+Train loss: 0.147624, Train accuracy: 0.9524
+Val loss: 0.121953, Val accuracy: 0.9675
+Learning rate: 0.000064 -> 0.000063
+Epoch time: 138.39s
+-------------------
+
+[INFO] EPOCH: 47/300
+Train loss: 0.147133, Train accuracy: 0.9541
+Val loss: 0.112013, Val accuracy: 0.9679
+Learning rate: 0.000063 -> 0.000062
+Epoch time: 138.83s
+-------------------
+
+[INFO] EPOCH: 48/300
+Train loss: 0.142868, Train accuracy: 0.9552
+Val loss: 0.087953, Val accuracy: 0.9756
+Learning rate: 0.000062 -> 0.000062
+Epoch time: 138.70s
+-------------------
+
+[INFO] EPOCH: 49/300
+Train loss: 0.137985, Train accuracy: 0.9570
+Val loss: 0.119236, Val accuracy: 0.9677
+Learning rate: 0.000062 -> 0.000061
+Epoch time: 139.25s
+-------------------
+
+[INFO] EPOCH: 50/300
+Train loss: 0.136532, Train accuracy: 0.9570
+Val loss: 0.093596, Val accuracy: 0.9702
+Learning rate: 0.000061 -> 0.000061
+Epoch time: 138.94s
+-------------------
+
+[INFO] EPOCH: 51/300
+Train loss: 0.134576, Train accuracy: 0.9578
+Val loss: 0.110542, Val accuracy: 0.9683
+Learning rate: 0.000061 -> 0.000060
+Epoch time: 137.66s
+-------------------
+
+[INFO] EPOCH: 52/300
+Train loss: 0.134126, Train accuracy: 0.9580
+Val loss: 0.095727, Val accuracy: 0.9730
+Learning rate: 0.000060 -> 0.000059
+Epoch time: 138.30s
+-------------------
+
+[INFO] EPOCH: 53/300
+Train loss: 0.131323, Train accuracy: 0.9588
+Val loss: 0.102194, Val accuracy: 0.9702
+Learning rate: 0.000059 -> 0.000059
+Epoch time: 138.39s
+-------------------
+
+[INFO] EPOCH: 54/300
+Train loss: 0.128939, Train accuracy: 0.9583
+Val loss: 0.125365, Val accuracy: 0.9683
+Learning rate: 0.000059 -> 0.000058
+Epoch time: 138.68s
+-------------------
+
+[INFO] EPOCH: 55/300
+Train loss: 0.124969, Train accuracy: 0.9614
+Val loss: 0.107921, Val accuracy: 0.9705
+Learning rate: 0.000058 -> 0.000058
+Epoch time: 138.98s
+-------------------
+
+[INFO] EPOCH: 56/300
+Train loss: 0.124334, Train accuracy: 0.9602
+Val loss: 0.109772, Val accuracy: 0.9705
+Learning rate: 0.000058 -> 0.000057
+Epoch time: 138.59s
+-------------------
+
+[INFO] EPOCH: 57/300
+Train loss: 0.130643, Train accuracy: 0.9592
+Val loss: 0.108433, Val accuracy: 0.9718
+Learning rate: 0.000057 -> 0.000056
+Epoch time: 138.47s
+-------------------
+
+[INFO] EPOCH: 58/300
+Train loss: 0.127405, Train accuracy: 0.9607
+Val loss: 0.103157, Val accuracy: 0.9728
+Learning rate: 0.000056 -> 0.000056
+Epoch time: 138.66s
+-------------------
+
+[INFO] EPOCH: 59/300
+Train loss: 0.123186, Train accuracy: 0.9623
+Val loss: 0.112549, Val accuracy: 0.9698
+Learning rate: 0.000056 -> 0.000055
+Epoch time: 138.49s
+-------------------
+
+[INFO] EPOCH: 60/300
+Train loss: 0.116922, Train accuracy: 0.9636
+Val loss: 0.094822, Val accuracy: 0.9729
+Learning rate: 0.000055 -> 0.000055
+Epoch time: 138.86s
+-------------------
+
+[INFO] EPOCH: 61/300
+Train loss: 0.119865, Train accuracy: 0.9629
+Val loss: 0.095768, Val accuracy: 0.9750
+Learning rate: 0.000055 -> 0.000054
+Epoch time: 137.66s
+-------------------
+
+[INFO] EPOCH: 62/300
+Train loss: 0.119471, Train accuracy: 0.9633
+Val loss: 0.108839, Val accuracy: 0.9694
+Learning rate: 0.000054 -> 0.000054
+Epoch time: 137.99s
+-------------------
+
+[INFO] EPOCH: 63/300
+Train loss: 0.121037, Train accuracy: 0.9627
+Val loss: 0.097854, Val accuracy: 0.9750
+Learning rate: 0.000054 -> 0.000053
+Epoch time: 138.15s
+-------------------
+
+[INFO] EPOCH: 64/300
+Train loss: 0.112506, Train accuracy: 0.9639
+Val loss: 0.100108, Val accuracy: 0.9740
+Learning rate: 0.000053 -> 0.000053
+Epoch time: 138.43s
+-------------------
+
+[INFO] EPOCH: 65/300
+Train loss: 0.117947, Train accuracy: 0.9629
+Val loss: 0.106696, Val accuracy: 0.9734
+Learning rate: 0.000053 -> 0.000052
+Epoch time: 137.88s
+-------------------
+
+[INFO] EPOCH: 66/300
+Train loss: 0.112550, Train accuracy: 0.9642
+Val loss: 0.093506, Val accuracy: 0.9748
+Learning rate: 0.000052 -> 0.000052
+Epoch time: 138.78s
+-------------------
+
+[INFO] EPOCH: 67/300
+Train loss: 0.113123, Train accuracy: 0.9643
+Val loss: 0.095815, Val accuracy: 0.9727
+Learning rate: 0.000052 -> 0.000051
+Epoch time: 138.93s
+-------------------
+
+[INFO] EPOCH: 68/300
+Train loss: 0.111363, Train accuracy: 0.9644
+Val loss: 0.094203, Val accuracy: 0.9744
+Learning rate: 0.000051 -> 0.000050
+Epoch time: 138.41s
+-------------------
+
+[INFO] EPOCH: 69/300
+Train loss: 0.108410, Train accuracy: 0.9664
+Val loss: 0.098434, Val accuracy: 0.9718
+Learning rate: 0.000050 -> 0.000050
+Epoch time: 138.82s
+-------------------
+
+[INFO] EPOCH: 70/300
+Train loss: 0.108330, Train accuracy: 0.9663
+Val loss: 0.090208, Val accuracy: 0.9759
+Learning rate: 0.000050 -> 0.000049
+Epoch time: 138.58s
+-------------------
+
+[INFO] EPOCH: 71/300
+Train loss: 0.108414, Train accuracy: 0.9658
+Val loss: 0.097031, Val accuracy: 0.9747
+Learning rate: 0.000049 -> 0.000049
+Epoch time: 138.57s
+-------------------
+
+[INFO] EPOCH: 72/300
+Train loss: 0.105590, Train accuracy: 0.9670
+Val loss: 0.097254, Val accuracy: 0.9744
+Learning rate: 0.000049 -> 0.000048
+Epoch time: 138.74s
+-------------------
+
+[INFO] EPOCH: 73/300
+Train loss: 0.101822, Train accuracy: 0.9677
+Val loss: 0.098012, Val accuracy: 0.9749
+Learning rate: 0.000048 -> 0.000048
+Epoch time: 138.96s
+-------------------
+
+[INFO] EPOCH: 74/300
+Train loss: 0.105326, Train accuracy: 0.9669
+Val loss: 0.087288, Val accuracy: 0.9755
+Learning rate: 0.000048 -> 0.000048
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 75/300
+Train loss: 0.103143, Train accuracy: 0.9676
+Val loss: 0.098854, Val accuracy: 0.9754
+Learning rate: 0.000048 -> 0.000047
+Epoch time: 139.07s
+-------------------
+
+[INFO] EPOCH: 76/300
+Train loss: 0.099147, Train accuracy: 0.9682
+Val loss: 0.092344, Val accuracy: 0.9774
+Learning rate: 0.000047 -> 0.000047
+Epoch time: 137.83s
+-------------------
+
+[INFO] EPOCH: 77/300
+Train loss: 0.099144, Train accuracy: 0.9682
+Val loss: 0.094445, Val accuracy: 0.9762
+Learning rate: 0.000047 -> 0.000046
+Epoch time: 138.57s
+-------------------
+
+[INFO] EPOCH: 78/300
+Train loss: 0.094948, Train accuracy: 0.9694
+Val loss: 0.097963, Val accuracy: 0.9751
+Learning rate: 0.000046 -> 0.000046
+Epoch time: 138.35s
+-------------------
+
+[INFO] EPOCH: 79/300
+Train loss: 0.097521, Train accuracy: 0.9689
+Val loss: 0.103350, Val accuracy: 0.9736
+Learning rate: 0.000046 -> 0.000045
+Epoch time: 138.47s
+-------------------
+
+[INFO] EPOCH: 80/300
+Train loss: 0.096416, Train accuracy: 0.9695
+Val loss: 0.093213, Val accuracy: 0.9757
+Learning rate: 0.000045 -> 0.000045
+Epoch time: 138.49s
+-------------------
+
+[INFO] EPOCH: 81/300
+Train loss: 0.097086, Train accuracy: 0.9704
+Val loss: 0.097627, Val accuracy: 0.9761
+Learning rate: 0.000045 -> 0.000044
+Epoch time: 137.76s
+-------------------
+
+[INFO] EPOCH: 82/300
+Train loss: 0.095053, Train accuracy: 0.9695
+Val loss: 0.106676, Val accuracy: 0.9755
+Learning rate: 0.000044 -> 0.000044
+Epoch time: 138.67s
+-------------------
+
+[INFO] EPOCH: 83/300
+Train loss: 0.094502, Train accuracy: 0.9705
+Val loss: 0.102202, Val accuracy: 0.9751
+Learning rate: 0.000044 -> 0.000043
+Epoch time: 138.05s
+-------------------
+
+[INFO] EPOCH: 84/300
+Train loss: 0.093882, Train accuracy: 0.9710
+Val loss: 0.109554, Val accuracy: 0.9754
+Learning rate: 0.000043 -> 0.000043
+Epoch time: 138.11s
+-------------------
+
+[INFO] EPOCH: 85/300
+Train loss: 0.094272, Train accuracy: 0.9702
+Val loss: 0.103261, Val accuracy: 0.9761
+Learning rate: 0.000043 -> 0.000043
+Epoch time: 138.86s
+-------------------
+
+[INFO] EPOCH: 86/300
+Train loss: 0.092746, Train accuracy: 0.9707
+Val loss: 0.085654, Val accuracy: 0.9791
+Learning rate: 0.000043 -> 0.000042
+Epoch time: 138.36s
+-------------------
+
+[INFO] EPOCH: 87/300
+Train loss: 0.092611, Train accuracy: 0.9702
+Val loss: 0.101051, Val accuracy: 0.9742
+Learning rate: 0.000042 -> 0.000042
+Epoch time: 139.15s
+-------------------
+
+[INFO] EPOCH: 88/300
+Train loss: 0.093839, Train accuracy: 0.9703
+Val loss: 0.109686, Val accuracy: 0.9750
+Learning rate: 0.000042 -> 0.000041
+Epoch time: 138.37s
+-------------------
+
+[INFO] EPOCH: 89/300
+Train loss: 0.089868, Train accuracy: 0.9710
+Val loss: 0.090707, Val accuracy: 0.9748
+Learning rate: 0.000041 -> 0.000041
+Epoch time: 138.70s
+-------------------
+
+[INFO] EPOCH: 90/300
+Train loss: 0.087249, Train accuracy: 0.9725
+Val loss: 0.093027, Val accuracy: 0.9783
+Learning rate: 0.000041 -> 0.000040
+Epoch time: 138.58s
+-------------------
+
+[INFO] EPOCH: 91/300
+Train loss: 0.091015, Train accuracy: 0.9716
+Val loss: 0.099111, Val accuracy: 0.9747
+Learning rate: 0.000040 -> 0.000040
+Epoch time: 139.31s
+-------------------
+
+[INFO] EPOCH: 92/300
+Train loss: 0.089190, Train accuracy: 0.9716
+Val loss: 0.084663, Val accuracy: 0.9785
+Learning rate: 0.000040 -> 0.000040
+Epoch time: 138.24s
+-------------------
+
+[INFO] EPOCH: 93/300
+Train loss: 0.084682, Train accuracy: 0.9732
+Val loss: 0.079290, Val accuracy: 0.9802
+Learning rate: 0.000040 -> 0.000039
+Epoch time: 138.45s
+-------------------
+
+[INFO] EPOCH: 94/300
+Train loss: 0.084811, Train accuracy: 0.9735
+Val loss: 0.096428, Val accuracy: 0.9760
+Learning rate: 0.000039 -> 0.000039
+Epoch time: 138.59s
+-------------------
+
+[INFO] EPOCH: 95/300
+Train loss: 0.087958, Train accuracy: 0.9721
+Val loss: 0.088130, Val accuracy: 0.9779
+Learning rate: 0.000039 -> 0.000038
+Epoch time: 138.57s
+-------------------
+
+[INFO] EPOCH: 96/300
+Train loss: 0.087485, Train accuracy: 0.9722
+Val loss: 0.087781, Val accuracy: 0.9775
+Learning rate: 0.000038 -> 0.000038
+Epoch time: 139.05s
+-------------------
+
+[INFO] EPOCH: 97/300
+Train loss: 0.080457, Train accuracy: 0.9747
+Val loss: 0.079727, Val accuracy: 0.9796
+Learning rate: 0.000038 -> 0.000038
+Epoch time: 138.89s
+-------------------
+
+[INFO] EPOCH: 98/300
+Train loss: 0.086583, Train accuracy: 0.9729
+Val loss: 0.084186, Val accuracy: 0.9781
+Learning rate: 0.000038 -> 0.000037
+Epoch time: 138.75s
+-------------------
+
+[INFO] EPOCH: 99/300
+Train loss: 0.084564, Train accuracy: 0.9732
+Val loss: 0.106669, Val accuracy: 0.9741
+Learning rate: 0.000037 -> 0.000037
+Epoch time: 138.48s
+-------------------
+
+[INFO] EPOCH: 100/300
+Train loss: 0.084166, Train accuracy: 0.9737
+Val loss: 0.125120, Val accuracy: 0.9705
+Learning rate: 0.000037 -> 0.000037
+Epoch time: 138.98s
+-------------------
+
+[INFO] EPOCH: 101/300
+Train loss: 0.079471, Train accuracy: 0.9753
+Val loss: 0.093618, Val accuracy: 0.9775
+Learning rate: 0.000037 -> 0.000036
+Epoch time: 138.54s
+-------------------
+
+[INFO] EPOCH: 102/300
+Train loss: 0.084506, Train accuracy: 0.9733
+Val loss: 0.106348, Val accuracy: 0.9755
+Learning rate: 0.000036 -> 0.000036
+Epoch time: 137.74s
+-------------------
+
+[INFO] EPOCH: 103/300
+Train loss: 0.080644, Train accuracy: 0.9737
+Val loss: 0.104691, Val accuracy: 0.9766
+Learning rate: 0.000036 -> 0.000036
+Epoch time: 138.46s
+-------------------
+
+[INFO] EPOCH: 104/300
+Train loss: 0.077008, Train accuracy: 0.9754
+Val loss: 0.106096, Val accuracy: 0.9749
+Learning rate: 0.000036 -> 0.000035
+Epoch time: 138.24s
+-------------------
+
+[INFO] EPOCH: 105/300
+Train loss: 0.079128, Train accuracy: 0.9749
+Val loss: 0.081438, Val accuracy: 0.9785
+Learning rate: 0.000035 -> 0.000035
+Epoch time: 138.63s
+-------------------
+
+[INFO] EPOCH: 106/300
+Train loss: 0.081621, Train accuracy: 0.9746
+Val loss: 0.104411, Val accuracy: 0.9728
+Learning rate: 0.000035 -> 0.000034
+Epoch time: 138.63s
+-------------------
+
+[INFO] EPOCH: 107/300
+Train loss: 0.077259, Train accuracy: 0.9758
+Val loss: 0.083594, Val accuracy: 0.9767
+Learning rate: 0.000034 -> 0.000034
+Epoch time: 138.37s
+-------------------
+
+[INFO] EPOCH: 108/300
+Train loss: 0.079146, Train accuracy: 0.9756
+Val loss: 0.082916, Val accuracy: 0.9789
+Learning rate: 0.000034 -> 0.000034
+Epoch time: 138.76s
+-------------------
+
+[INFO] EPOCH: 109/300
+Train loss: 0.073712, Train accuracy: 0.9765
+Val loss: 0.084148, Val accuracy: 0.9768
+Learning rate: 0.000034 -> 0.000033
+Epoch time: 138.91s
+-------------------
+
+[INFO] EPOCH: 110/300
+Train loss: 0.076447, Train accuracy: 0.9755
+Val loss: 0.101895, Val accuracy: 0.9725
+Learning rate: 0.000033 -> 0.000033
+Epoch time: 138.60s
+-------------------
+
+[INFO] EPOCH: 111/300
+Train loss: 0.073278, Train accuracy: 0.9776
+Val loss: 0.092230, Val accuracy: 0.9762
+Learning rate: 0.000033 -> 0.000033
+Epoch time: 138.46s
+-------------------
+
+[INFO] EPOCH: 112/300
+Train loss: 0.076792, Train accuracy: 0.9755
+Val loss: 0.107684, Val accuracy: 0.9762
+Learning rate: 0.000033 -> 0.000032
+Epoch time: 138.92s
+-------------------
+
+[INFO] EPOCH: 113/300
+Train loss: 0.074819, Train accuracy: 0.9763
+Val loss: 0.086222, Val accuracy: 0.9775
+Learning rate: 0.000032 -> 0.000032
+Epoch time: 138.66s
+-------------------
+
+[INFO] EPOCH: 114/300
+Train loss: 0.077232, Train accuracy: 0.9759
+Val loss: 0.104474, Val accuracy: 0.9727
+Learning rate: 0.000032 -> 0.000032
+Epoch time: 139.05s
+-------------------
+
+[INFO] EPOCH: 115/300
+Train loss: 0.072239, Train accuracy: 0.9766
+Val loss: 0.105767, Val accuracy: 0.9743
+Learning rate: 0.000032 -> 0.000031
+Epoch time: 138.69s
+-------------------
+
+[INFO] EPOCH: 116/300
+Train loss: 0.076034, Train accuracy: 0.9767
+Val loss: 0.099089, Val accuracy: 0.9754
+Learning rate: 0.000031 -> 0.000031
+Epoch time: 138.00s
+-------------------
+
+[INFO] EPOCH: 117/300
+Train loss: 0.074209, Train accuracy: 0.9771
+Val loss: 0.085870, Val accuracy: 0.9770
+Learning rate: 0.000031 -> 0.000031
+Epoch time: 138.28s
+-------------------
+
+[INFO] EPOCH: 118/300
+Train loss: 0.074109, Train accuracy: 0.9767
+Val loss: 0.081734, Val accuracy: 0.9779
+Learning rate: 0.000031 -> 0.000031
+Epoch time: 138.44s
+-------------------
+
+[INFO] EPOCH: 119/300
+Train loss: 0.074300, Train accuracy: 0.9765
+Val loss: 0.072302, Val accuracy: 0.9797
+Learning rate: 0.000031 -> 0.000030
+Epoch time: 138.79s
+-------------------
+
+[INFO] EPOCH: 120/300
+Train loss: 0.072741, Train accuracy: 0.9768
+Val loss: 0.092413, Val accuracy: 0.9766
+Learning rate: 0.000030 -> 0.000030
+Epoch time: 138.59s
+-------------------
+
+[INFO] EPOCH: 121/300
+Train loss: 0.071106, Train accuracy: 0.9780
+Val loss: 0.082776, Val accuracy: 0.9785
+Learning rate: 0.000030 -> 0.000030
+Epoch time: 138.71s
+-------------------
+
+[INFO] EPOCH: 122/300
+Train loss: 0.071133, Train accuracy: 0.9783
+Val loss: 0.091245, Val accuracy: 0.9767
+Learning rate: 0.000030 -> 0.000029
+Epoch time: 138.91s
+-------------------
+
+[INFO] EPOCH: 123/300
+Train loss: 0.071050, Train accuracy: 0.9776
+Val loss: 0.087024, Val accuracy: 0.9784
+Learning rate: 0.000029 -> 0.000029
+Epoch time: 138.28s
+-------------------
+
+[INFO] EPOCH: 124/300
+Train loss: 0.068942, Train accuracy: 0.9789
+Val loss: 0.115150, Val accuracy: 0.9753
+Learning rate: 0.000029 -> 0.000029
+Epoch time: 138.49s
+-------------------
+
+[INFO] EPOCH: 125/300
+Train loss: 0.070259, Train accuracy: 0.9781
+Val loss: 0.104700, Val accuracy: 0.9759
+Learning rate: 0.000029 -> 0.000028
+Epoch time: 138.14s
+-------------------
+
+[INFO] EPOCH: 126/300
+Train loss: 0.067841, Train accuracy: 0.9784
+Val loss: 0.098567, Val accuracy: 0.9774
+Learning rate: 0.000028 -> 0.000028
+Epoch time: 138.67s
+-------------------
+
+[INFO] EPOCH: 127/300
+Train loss: 0.070711, Train accuracy: 0.9778
+Val loss: 0.087940, Val accuracy: 0.9803
+Learning rate: 0.000028 -> 0.000028
+Epoch time: 139.01s
+-------------------
+
+[INFO] EPOCH: 128/300
+Train loss: 0.070011, Train accuracy: 0.9774
+Val loss: 0.124096, Val accuracy: 0.9721
+Learning rate: 0.000028 -> 0.000028
+Epoch time: 139.25s
+-------------------
+
+[INFO] EPOCH: 129/300
+Train loss: 0.067116, Train accuracy: 0.9794
+Val loss: 0.083944, Val accuracy: 0.9801
+Learning rate: 0.000028 -> 0.000027
+Epoch time: 138.41s
+-------------------
+
+[INFO] EPOCH: 130/300
+Train loss: 0.066046, Train accuracy: 0.9787
+Val loss: 0.086188, Val accuracy: 0.9806
+Learning rate: 0.000027 -> 0.000027
+Epoch time: 138.26s
+-------------------
+
+[INFO] EPOCH: 131/300
+Train loss: 0.066269, Train accuracy: 0.9790
+Val loss: 0.089134, Val accuracy: 0.9791
+Learning rate: 0.000027 -> 0.000027
+Epoch time: 138.14s
+-------------------
+
+[INFO] EPOCH: 132/300
+Train loss: 0.067282, Train accuracy: 0.9787
+Val loss: 0.092986, Val accuracy: 0.9793
+Learning rate: 0.000027 -> 0.000027
+Epoch time: 138.31s
+-------------------
+
+[INFO] EPOCH: 133/300
+Train loss: 0.065241, Train accuracy: 0.9795
+Val loss: 0.104432, Val accuracy: 0.9765
+Learning rate: 0.000027 -> 0.000026
+Epoch time: 137.96s
+-------------------
+
+[INFO] EPOCH: 134/300
+Train loss: 0.066965, Train accuracy: 0.9794
+Val loss: 0.093785, Val accuracy: 0.9785
+Learning rate: 0.000026 -> 0.000026
+Epoch time: 138.69s
+-------------------
+
+[INFO] EPOCH: 135/300
+Train loss: 0.064547, Train accuracy: 0.9800
+Val loss: 0.095866, Val accuracy: 0.9774
+Learning rate: 0.000026 -> 0.000026
+Epoch time: 138.19s
+-------------------
+
+[INFO] EPOCH: 136/300
+Train loss: 0.066303, Train accuracy: 0.9785
+Val loss: 0.110391, Val accuracy: 0.9756
+Learning rate: 0.000026 -> 0.000025
+Epoch time: 138.63s
+-------------------
+
+[INFO] EPOCH: 137/300
+Train loss: 0.066308, Train accuracy: 0.9790
+Val loss: 0.097015, Val accuracy: 0.9782
+Learning rate: 0.000025 -> 0.000025
+Epoch time: 139.15s
+-------------------
+
+[INFO] EPOCH: 138/300
+Train loss: 0.062864, Train accuracy: 0.9802
+Val loss: 0.102802, Val accuracy: 0.9769
+Learning rate: 0.000025 -> 0.000025
+Epoch time: 138.76s
+-------------------
+
+[INFO] EPOCH: 139/300
+Train loss: 0.064454, Train accuracy: 0.9798
+Val loss: 0.099678, Val accuracy: 0.9768
+Learning rate: 0.000025 -> 0.000025
+Epoch time: 138.73s
+-------------------
+
+[INFO] EPOCH: 140/300
+Train loss: 0.063937, Train accuracy: 0.9804
+Val loss: 0.116394, Val accuracy: 0.9754
+Learning rate: 0.000025 -> 0.000024
+Epoch time: 138.89s
+-------------------
+
+[INFO] EPOCH: 141/300
+Train loss: 0.063053, Train accuracy: 0.9799
+Val loss: 0.111105, Val accuracy: 0.9756
+Learning rate: 0.000024 -> 0.000024
+Epoch time: 138.03s
+-------------------
+
+[INFO] EPOCH: 142/300
+Train loss: 0.061455, Train accuracy: 0.9804
+Val loss: 0.095393, Val accuracy: 0.9781
+Learning rate: 0.000024 -> 0.000024
+Epoch time: 137.89s
+-------------------
+
+[INFO] EPOCH: 143/300
+Train loss: 0.060351, Train accuracy: 0.9805
+Val loss: 0.087680, Val accuracy: 0.9785
+Learning rate: 0.000024 -> 0.000024
+Epoch time: 138.21s
+-------------------
+
+[INFO] EPOCH: 144/300
+Train loss: 0.065544, Train accuracy: 0.9793
+Val loss: 0.072115, Val accuracy: 0.9816
+Learning rate: 0.000024 -> 0.000024
+Epoch time: 138.35s
+-------------------
+
+[INFO] EPOCH: 145/300
+Train loss: 0.064220, Train accuracy: 0.9801
+Val loss: 0.087853, Val accuracy: 0.9785
+Learning rate: 0.000024 -> 0.000023
+Epoch time: 138.70s
+-------------------
+
+[INFO] EPOCH: 146/300
+Train loss: 0.062785, Train accuracy: 0.9798
+Val loss: 0.093338, Val accuracy: 0.9774
+Learning rate: 0.000023 -> 0.000023
+Epoch time: 138.74s
+-------------------
+
+[INFO] EPOCH: 147/300
+Train loss: 0.063240, Train accuracy: 0.9803
+Val loss: 0.084236, Val accuracy: 0.9781
+Learning rate: 0.000023 -> 0.000023
+Epoch time: 137.78s
+-------------------
+
+[INFO] EPOCH: 148/300
+Train loss: 0.059738, Train accuracy: 0.9809
+Val loss: 0.093473, Val accuracy: 0.9774
+Learning rate: 0.000023 -> 0.000023
+Epoch time: 138.77s
+-------------------
+
+[INFO] EPOCH: 149/300
+Train loss: 0.060539, Train accuracy: 0.9807
+Val loss: 0.091202, Val accuracy: 0.9778
+Learning rate: 0.000023 -> 0.000022
+Epoch time: 138.75s
+-------------------
+
+[INFO] EPOCH: 150/300
+Train loss: 0.064093, Train accuracy: 0.9802
+Val loss: 0.085917, Val accuracy: 0.9797
+Learning rate: 0.000022 -> 0.000022
+Epoch time: 138.31s
+-------------------
+
+[INFO] EPOCH: 151/300
+Train loss: 0.059477, Train accuracy: 0.9819
+Val loss: 0.086133, Val accuracy: 0.9796
+Learning rate: 0.000022 -> 0.000022
+Epoch time: 138.73s
+-------------------
+
+[INFO] EPOCH: 152/300
+Train loss: 0.059459, Train accuracy: 0.9810
+Val loss: 0.095229, Val accuracy: 0.9764
+Learning rate: 0.000022 -> 0.000022
+Epoch time: 137.73s
+-------------------
+
+[INFO] EPOCH: 153/300
+Train loss: 0.055982, Train accuracy: 0.9824
+Val loss: 0.077511, Val accuracy: 0.9806
+Learning rate: 0.000022 -> 0.000021
+Epoch time: 138.52s
+-------------------
+
+[INFO] EPOCH: 154/300
+Train loss: 0.057938, Train accuracy: 0.9818
+Val loss: 0.085086, Val accuracy: 0.9811
+Learning rate: 0.000021 -> 0.000021
+Epoch time: 139.03s
+-------------------
+
+[INFO] EPOCH: 155/300
+Train loss: 0.056261, Train accuracy: 0.9826
+Val loss: 0.081540, Val accuracy: 0.9789
+Learning rate: 0.000021 -> 0.000021
+Epoch time: 139.07s
+-------------------
+
+[INFO] EPOCH: 156/300
+Train loss: 0.056155, Train accuracy: 0.9820
+Val loss: 0.086395, Val accuracy: 0.9799
+Learning rate: 0.000021 -> 0.000021
+Epoch time: 138.20s
+-------------------
+
+[INFO] EPOCH: 157/300
+Train loss: 0.056927, Train accuracy: 0.9822
+Val loss: 0.081565, Val accuracy: 0.9796
+Learning rate: 0.000021 -> 0.000021
+Epoch time: 138.94s
+-------------------
+
+[INFO] EPOCH: 158/300
+Train loss: 0.055024, Train accuracy: 0.9826
+Val loss: 0.093955, Val accuracy: 0.9779
+Learning rate: 0.000021 -> 0.000020
+Epoch time: 138.85s
+-------------------
+
+[INFO] EPOCH: 159/300
+Train loss: 0.061200, Train accuracy: 0.9809
+Val loss: 0.088014, Val accuracy: 0.9770
+Learning rate: 0.000020 -> 0.000020
+Epoch time: 138.30s
+-------------------
+
+[INFO] EPOCH: 160/300
+Train loss: 0.057943, Train accuracy: 0.9819
+Val loss: 0.087501, Val accuracy: 0.9787
+Learning rate: 0.000020 -> 0.000020
+Epoch time: 139.24s
+-------------------
+
+[INFO] EPOCH: 161/300
+Train loss: 0.059019, Train accuracy: 0.9818
+Val loss: 0.088480, Val accuracy: 0.9800
+Learning rate: 0.000020 -> 0.000020
+Epoch time: 138.68s
+-------------------
+
+[INFO] EPOCH: 162/300
+Train loss: 0.057071, Train accuracy: 0.9826
+Val loss: 0.103960, Val accuracy: 0.9760
+Learning rate: 0.000020 -> 0.000020
+Epoch time: 138.72s
+-------------------
+
+[INFO] EPOCH: 163/300
+Train loss: 0.054044, Train accuracy: 0.9830
+Val loss: 0.110235, Val accuracy: 0.9766
+Learning rate: 0.000020 -> 0.000019
+Epoch time: 138.87s
+-------------------
+
+[INFO] EPOCH: 164/300
+Train loss: 0.059520, Train accuracy: 0.9809
+Val loss: 0.101946, Val accuracy: 0.9787
+Learning rate: 0.000019 -> 0.000019
+Epoch time: 138.71s
+-------------------
+
+[INFO] EPOCH: 165/300
+Train loss: 0.054343, Train accuracy: 0.9833
+Val loss: 0.087326, Val accuracy: 0.9806
+Learning rate: 0.000019 -> 0.000019
+Epoch time: 138.82s
+-------------------
+
+[INFO] EPOCH: 166/300
+Train loss: 0.058006, Train accuracy: 0.9821
+Val loss: 0.086923, Val accuracy: 0.9804
+Learning rate: 0.000019 -> 0.000019
+Epoch time: 138.78s
+-------------------
+
+[INFO] EPOCH: 167/300
+Train loss: 0.058804, Train accuracy: 0.9820
+Val loss: 0.079700, Val accuracy: 0.9800
+Learning rate: 0.000019 -> 0.000019
+Epoch time: 138.86s
+-------------------
+
+[INFO] EPOCH: 168/300
+Train loss: 0.052436, Train accuracy: 0.9832
+Val loss: 0.102190, Val accuracy: 0.9768
+Learning rate: 0.000019 -> 0.000018
+Epoch time: 138.68s
+-------------------
+
+[INFO] EPOCH: 169/300
+Train loss: 0.053814, Train accuracy: 0.9837
+Val loss: 0.080795, Val accuracy: 0.9801
+Learning rate: 0.000018 -> 0.000018
+Epoch time: 138.78s
+-------------------
+
+[INFO] EPOCH: 170/300
+Train loss: 0.057825, Train accuracy: 0.9817
+Val loss: 0.080660, Val accuracy: 0.9820
+Learning rate: 0.000018 -> 0.000018
+Epoch time: 138.61s
+-------------------
+
+[INFO] EPOCH: 171/300
+Train loss: 0.050518, Train accuracy: 0.9843
+Val loss: 0.089598, Val accuracy: 0.9790
+Learning rate: 0.000018 -> 0.000018
+Epoch time: 137.65s
+-------------------
+
+[INFO] EPOCH: 172/300
+Train loss: 0.051887, Train accuracy: 0.9838
+Val loss: 0.089208, Val accuracy: 0.9808
+Learning rate: 0.000018 -> 0.000018
+Epoch time: 138.75s
+-------------------
+
+[INFO] EPOCH: 173/300
+Train loss: 0.052388, Train accuracy: 0.9830
+Val loss: 0.103193, Val accuracy: 0.9773
+Learning rate: 0.000018 -> 0.000018
+Epoch time: 137.68s
+-------------------
+
+[INFO] EPOCH: 174/300
+Train loss: 0.054382, Train accuracy: 0.9824
+Val loss: 0.083225, Val accuracy: 0.9797
+Learning rate: 0.000018 -> 0.000017
+Epoch time: 138.93s
+-------------------
+
+[INFO] EPOCH: 175/300
+Train loss: 0.051272, Train accuracy: 0.9840
+Val loss: 0.081735, Val accuracy: 0.9800
+Learning rate: 0.000017 -> 0.000017
+Epoch time: 139.10s
+-------------------
+
+[INFO] EPOCH: 176/300
+Train loss: 0.052536, Train accuracy: 0.9841
+Val loss: 0.093178, Val accuracy: 0.9813
+Learning rate: 0.000017 -> 0.000017
+Epoch time: 138.53s
+-------------------
+
+[INFO] EPOCH: 177/300
+Train loss: 0.051955, Train accuracy: 0.9841
+Val loss: 0.076869, Val accuracy: 0.9824
+Learning rate: 0.000017 -> 0.000017
+Epoch time: 137.50s
+-------------------
+
+[INFO] EPOCH: 178/300
+Train loss: 0.052983, Train accuracy: 0.9839
+Val loss: 0.076521, Val accuracy: 0.9808
+Learning rate: 0.000017 -> 0.000017
+Epoch time: 139.23s
+-------------------
+
+[INFO] EPOCH: 179/300
+Train loss: 0.053350, Train accuracy: 0.9833
+Val loss: 0.080887, Val accuracy: 0.9812
+Learning rate: 0.000017 -> 0.000017
+Epoch time: 138.93s
+-------------------
+
+[INFO] EPOCH: 180/300
+Train loss: 0.052156, Train accuracy: 0.9836
+Val loss: 0.077273, Val accuracy: 0.9819
+Learning rate: 0.000017 -> 0.000016
+Epoch time: 138.31s
+-------------------
+
+[INFO] EPOCH: 181/300
+Train loss: 0.051046, Train accuracy: 0.9838
+Val loss: 0.074441, Val accuracy: 0.9819
+Learning rate: 0.000016 -> 0.000016
+Epoch time: 137.87s
+-------------------
+
+[INFO] EPOCH: 182/300
+Train loss: 0.056224, Train accuracy: 0.9825
+Val loss: 0.078299, Val accuracy: 0.9812
+Learning rate: 0.000016 -> 0.000016
+Epoch time: 138.85s
+-------------------
+
+[INFO] EPOCH: 183/300
+Train loss: 0.050918, Train accuracy: 0.9838
+Val loss: 0.086356, Val accuracy: 0.9805
+Learning rate: 0.000016 -> 0.000016
+Epoch time: 138.97s
+-------------------
+
+[INFO] EPOCH: 184/300
+Train loss: 0.051602, Train accuracy: 0.9836
+Val loss: 0.080135, Val accuracy: 0.9805
+Learning rate: 0.000016 -> 0.000016
+Epoch time: 138.34s
+-------------------
+
+[INFO] EPOCH: 185/300
+Train loss: 0.055300, Train accuracy: 0.9830
+Val loss: 0.079403, Val accuracy: 0.9818
+Learning rate: 0.000016 -> 0.000016
+Epoch time: 138.16s
+-------------------
+
+[INFO] EPOCH: 186/300
+Train loss: 0.054147, Train accuracy: 0.9835
+Val loss: 0.092276, Val accuracy: 0.9807
+Learning rate: 0.000016 -> 0.000015
+Epoch time: 138.81s
+-------------------
+
+[INFO] EPOCH: 187/300
+Train loss: 0.051362, Train accuracy: 0.9841
+Val loss: 0.081721, Val accuracy: 0.9813
+Learning rate: 0.000015 -> 0.000015
+Epoch time: 138.97s
+-------------------
+
+[INFO] EPOCH: 188/300
+Train loss: 0.051165, Train accuracy: 0.9844
+Val loss: 0.085652, Val accuracy: 0.9802
+Learning rate: 0.000015 -> 0.000015
+Epoch time: 138.37s
+-------------------
+
+[INFO] EPOCH: 189/300
+Train loss: 0.048611, Train accuracy: 0.9846
+Val loss: 0.076482, Val accuracy: 0.9827
+Learning rate: 0.000015 -> 0.000015
+Epoch time: 138.77s
+-------------------
+
+[INFO] EPOCH: 190/300
+Train loss: 0.047510, Train accuracy: 0.9852
+Val loss: 0.065487, Val accuracy: 0.9838
+Learning rate: 0.000015 -> 0.000015
+Epoch time: 138.57s
+-------------------
+
+[INFO] EPOCH: 191/300
+Train loss: 0.050090, Train accuracy: 0.9838
+Val loss: 0.074257, Val accuracy: 0.9835
+Learning rate: 0.000015 -> 0.000015
+Epoch time: 138.66s
+-------------------
+
+[INFO] EPOCH: 192/300
+Train loss: 0.050072, Train accuracy: 0.9847
+Val loss: 0.078320, Val accuracy: 0.9813
+Learning rate: 0.000015 -> 0.000015
+Epoch time: 138.42s
+-------------------
+
+[INFO] EPOCH: 193/300
+Train loss: 0.053193, Train accuracy: 0.9835
+Val loss: 0.076022, Val accuracy: 0.9812
+Learning rate: 0.000015 -> 0.000014
+Epoch time: 138.82s
+-------------------
+
+[INFO] EPOCH: 194/300
+Train loss: 0.047171, Train accuracy: 0.9854
+Val loss: 0.075502, Val accuracy: 0.9808
+Learning rate: 0.000014 -> 0.000014
+Epoch time: 139.04s
+-------------------
+
+[INFO] EPOCH: 195/300
+Train loss: 0.048932, Train accuracy: 0.9844
+Val loss: 0.069986, Val accuracy: 0.9834
+Learning rate: 0.000014 -> 0.000014
+Epoch time: 138.99s
+-------------------
+
+[INFO] EPOCH: 196/300
+Train loss: 0.047916, Train accuracy: 0.9848
+Val loss: 0.077524, Val accuracy: 0.9824
+Learning rate: 0.000014 -> 0.000014
+Epoch time: 138.01s
+-------------------
+
+[INFO] EPOCH: 197/300
+Train loss: 0.051925, Train accuracy: 0.9836
+Val loss: 0.080900, Val accuracy: 0.9814
+Learning rate: 0.000014 -> 0.000014
+Epoch time: 138.43s
+-------------------
+
+[INFO] EPOCH: 198/300
+Train loss: 0.047015, Train accuracy: 0.9851
+Val loss: 0.080393, Val accuracy: 0.9816
+Learning rate: 0.000014 -> 0.000014
+Epoch time: 138.39s
+-------------------
+
+[INFO] EPOCH: 199/300
+Train loss: 0.050530, Train accuracy: 0.9852
+Val loss: 0.074921, Val accuracy: 0.9827
+Learning rate: 0.000014 -> 0.000014
+Epoch time: 138.54s
+-------------------
+
+[INFO] EPOCH: 200/300
+Train loss: 0.048095, Train accuracy: 0.9849
+Val loss: 0.081595, Val accuracy: 0.9822
+Learning rate: 0.000014 -> 0.000013
+Epoch time: 138.93s
+-------------------
+
+[INFO] EPOCH: 201/300
+Train loss: 0.052189, Train accuracy: 0.9842
+Val loss: 0.092587, Val accuracy: 0.9789
+Learning rate: 0.000013 -> 0.000013
+Epoch time: 139.16s
+-------------------
+
+[INFO] EPOCH: 202/300
+Train loss: 0.050594, Train accuracy: 0.9843
+Val loss: 0.076939, Val accuracy: 0.9815
+Learning rate: 0.000013 -> 0.000013
+Epoch time: 138.97s
+-------------------
+
+[INFO] EPOCH: 203/300
+Train loss: 0.047690, Train accuracy: 0.9849
+Val loss: 0.083983, Val accuracy: 0.9807
+Learning rate: 0.000013 -> 0.000013
+Epoch time: 137.97s
+-------------------
+
+[INFO] EPOCH: 204/300
+Train loss: 0.046508, Train accuracy: 0.9853
+Val loss: 0.075561, Val accuracy: 0.9823
+Learning rate: 0.000013 -> 0.000013
+Epoch time: 139.51s
+-------------------
+
+[INFO] EPOCH: 205/300
+Train loss: 0.049706, Train accuracy: 0.9842
+Val loss: 0.076607, Val accuracy: 0.9816
+Learning rate: 0.000013 -> 0.000013
+Epoch time: 138.98s
+-------------------
+
+[INFO] EPOCH: 206/300
+Train loss: 0.046513, Train accuracy: 0.9852
+Val loss: 0.078249, Val accuracy: 0.9812
+Learning rate: 0.000013 -> 0.000013
+Epoch time: 139.05s
+-------------------
+
+[INFO] EPOCH: 207/300
+Train loss: 0.045033, Train accuracy: 0.9860
+Val loss: 0.085451, Val accuracy: 0.9807
+Learning rate: 0.000013 -> 0.000012
+Epoch time: 139.07s
+-------------------
+
+[INFO] EPOCH: 208/300
+Train loss: 0.046879, Train accuracy: 0.9854
+Val loss: 0.078354, Val accuracy: 0.9823
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 139.14s
+-------------------
+
+[INFO] EPOCH: 209/300
+Train loss: 0.046490, Train accuracy: 0.9857
+Val loss: 0.079442, Val accuracy: 0.9807
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.45s
+-------------------
+
+[INFO] EPOCH: 210/300
+Train loss: 0.045493, Train accuracy: 0.9857
+Val loss: 0.073580, Val accuracy: 0.9823
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.62s
+-------------------
+
+[INFO] EPOCH: 211/300
+Train loss: 0.047888, Train accuracy: 0.9849
+Val loss: 0.080943, Val accuracy: 0.9803
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.27s
+-------------------
+
+[INFO] EPOCH: 212/300
+Train loss: 0.043798, Train accuracy: 0.9861
+Val loss: 0.071799, Val accuracy: 0.9819
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.79s
+-------------------
+
+[INFO] EPOCH: 213/300
+Train loss: 0.046918, Train accuracy: 0.9856
+Val loss: 0.060213, Val accuracy: 0.9848
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.87s
+-------------------
+
+[INFO] EPOCH: 214/300
+Train loss: 0.043866, Train accuracy: 0.9864
+Val loss: 0.080079, Val accuracy: 0.9808
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.43s
+-------------------
+
+[INFO] EPOCH: 215/300
+Train loss: 0.048068, Train accuracy: 0.9853
+Val loss: 0.082348, Val accuracy: 0.9810
+Learning rate: 0.000012 -> 0.000012
+Epoch time: 138.18s
+-------------------
+
+[INFO] EPOCH: 216/300
+Train loss: 0.045561, Train accuracy: 0.9853
+Val loss: 0.075181, Val accuracy: 0.9821
+Learning rate: 0.000012 -> 0.000011
+Epoch time: 138.81s
+-------------------
+
+[INFO] EPOCH: 217/300
+Train loss: 0.045179, Train accuracy: 0.9857
+Val loss: 0.078448, Val accuracy: 0.9817
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 138.45s
+-------------------
+
+[INFO] EPOCH: 218/300
+Train loss: 0.046550, Train accuracy: 0.9856
+Val loss: 0.082845, Val accuracy: 0.9812
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 138.82s
+-------------------
+
+[INFO] EPOCH: 219/300
+Train loss: 0.046407, Train accuracy: 0.9858
+Val loss: 0.078846, Val accuracy: 0.9827
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 139.10s
+-------------------
+
+[INFO] EPOCH: 220/300
+Train loss: 0.044434, Train accuracy: 0.9857
+Val loss: 0.082556, Val accuracy: 0.9810
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 138.51s
+-------------------
+
+[INFO] EPOCH: 221/300
+Train loss: 0.048426, Train accuracy: 0.9848
+Val loss: 0.072864, Val accuracy: 0.9825
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 138.61s
+-------------------
+
+[INFO] EPOCH: 222/300
+Train loss: 0.048278, Train accuracy: 0.9850
+Val loss: 0.080462, Val accuracy: 0.9815
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 138.62s
+-------------------
+
+[INFO] EPOCH: 223/300
+Train loss: 0.045486, Train accuracy: 0.9864
+Val loss: 0.087518, Val accuracy: 0.9804
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 137.91s
+-------------------
+
+[INFO] EPOCH: 224/300
+Train loss: 0.044158, Train accuracy: 0.9860
+Val loss: 0.080944, Val accuracy: 0.9813
+Learning rate: 0.000011 -> 0.000011
+Epoch time: 138.70s
+-------------------
+
+[INFO] EPOCH: 225/300
+Train loss: 0.043617, Train accuracy: 0.9866
+Val loss: 0.087484, Val accuracy: 0.9817
+Learning rate: 0.000011 -> 0.000010
+Epoch time: 138.57s
+-------------------
+
+[INFO] EPOCH: 226/300
+Train loss: 0.046741, Train accuracy: 0.9854
+Val loss: 0.091932, Val accuracy: 0.9790
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 138.63s
+-------------------
+
+[INFO] EPOCH: 227/300
+Train loss: 0.043616, Train accuracy: 0.9864
+Val loss: 0.086306, Val accuracy: 0.9797
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 138.26s
+-------------------
+
+[INFO] EPOCH: 228/300
+Train loss: 0.047577, Train accuracy: 0.9854
+Val loss: 0.080825, Val accuracy: 0.9808
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 138.90s
+-------------------
+
+[INFO] EPOCH: 229/300
+Train loss: 0.042627, Train accuracy: 0.9868
+Val loss: 0.091221, Val accuracy: 0.9808
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 137.91s
+-------------------
+
+[INFO] EPOCH: 230/300
+Train loss: 0.046475, Train accuracy: 0.9858
+Val loss: 0.091410, Val accuracy: 0.9804
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 139.00s
+-------------------
+
+[INFO] EPOCH: 231/300
+Train loss: 0.044412, Train accuracy: 0.9865
+Val loss: 0.085961, Val accuracy: 0.9805
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 138.78s
+-------------------
+
+[INFO] EPOCH: 232/300
+Train loss: 0.041185, Train accuracy: 0.9872
+Val loss: 0.081736, Val accuracy: 0.9818
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 138.50s
+-------------------
+
+[INFO] EPOCH: 233/300
+Train loss: 0.046644, Train accuracy: 0.9858
+Val loss: 0.097126, Val accuracy: 0.9787
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 137.82s
+-------------------
+
+[INFO] EPOCH: 234/300
+Train loss: 0.043210, Train accuracy: 0.9867
+Val loss: 0.084211, Val accuracy: 0.9804
+Learning rate: 0.000010 -> 0.000010
+Epoch time: 138.66s
+-------------------
+
+[INFO] EPOCH: 235/300
+Train loss: 0.045964, Train accuracy: 0.9859
+Val loss: 0.083894, Val accuracy: 0.9813
+Learning rate: 0.000010 -> 0.000009
+Epoch time: 138.73s
+-------------------
+
+[INFO] EPOCH: 236/300
+Train loss: 0.039202, Train accuracy: 0.9880
+Val loss: 0.093355, Val accuracy: 0.9802
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.15s
+-------------------
+
+[INFO] EPOCH: 237/300
+Train loss: 0.045018, Train accuracy: 0.9862
+Val loss: 0.086661, Val accuracy: 0.9809
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.85s
+-------------------
+
+[INFO] EPOCH: 238/300
+Train loss: 0.043987, Train accuracy: 0.9864
+Val loss: 0.099108, Val accuracy: 0.9801
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.53s
+-------------------
+
+[INFO] EPOCH: 239/300
+Train loss: 0.045147, Train accuracy: 0.9860
+Val loss: 0.088474, Val accuracy: 0.9803
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.79s
+-------------------
+
+[INFO] EPOCH: 240/300
+Train loss: 0.041375, Train accuracy: 0.9873
+Val loss: 0.087265, Val accuracy: 0.9816
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.90s
+-------------------
+
+[INFO] EPOCH: 241/300
+Train loss: 0.042052, Train accuracy: 0.9870
+Val loss: 0.088197, Val accuracy: 0.9805
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.81s
+-------------------
+
+[INFO] EPOCH: 242/300
+Train loss: 0.039378, Train accuracy: 0.9876
+Val loss: 0.091951, Val accuracy: 0.9810
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.29s
+-------------------
+
+[INFO] EPOCH: 243/300
+Train loss: 0.040924, Train accuracy: 0.9877
+Val loss: 0.084478, Val accuracy: 0.9817
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.26s
+-------------------
+
+[INFO] EPOCH: 244/300
+Train loss: 0.041784, Train accuracy: 0.9874
+Val loss: 0.090872, Val accuracy: 0.9818
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.03s
+-------------------
+
+[INFO] EPOCH: 245/300
+Train loss: 0.043723, Train accuracy: 0.9866
+Val loss: 0.094925, Val accuracy: 0.9811
+Learning rate: 0.000009 -> 0.000009
+Epoch time: 138.46s
+-------------------
+
+[INFO] EPOCH: 246/300
+Train loss: 0.043253, Train accuracy: 0.9867
+Val loss: 0.100709, Val accuracy: 0.9797
+Learning rate: 0.000009 -> 0.000008
+Epoch time: 138.42s
+-------------------
+
+[INFO] EPOCH: 247/300
+Train loss: 0.039409, Train accuracy: 0.9878
+Val loss: 0.094850, Val accuracy: 0.9800
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 139.13s
+-------------------
+
+[INFO] EPOCH: 248/300
+Train loss: 0.039514, Train accuracy: 0.9878
+Val loss: 0.090695, Val accuracy: 0.9821
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 139.10s
+-------------------
+
+[INFO] EPOCH: 249/300
+Train loss: 0.043620, Train accuracy: 0.9860
+Val loss: 0.092714, Val accuracy: 0.9812
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 138.32s
+-------------------
+
+[INFO] EPOCH: 250/300
+Train loss: 0.040943, Train accuracy: 0.9872
+Val loss: 0.092275, Val accuracy: 0.9821
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 139.07s
+-------------------
+
+[INFO] EPOCH: 251/300
+Train loss: 0.042386, Train accuracy: 0.9873
+Val loss: 0.092235, Val accuracy: 0.9824
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 137.80s
+-------------------
+
+[INFO] EPOCH: 252/300
+Train loss: 0.040255, Train accuracy: 0.9875
+Val loss: 0.088091, Val accuracy: 0.9823
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 139.24s
+-------------------
+
+[INFO] EPOCH: 253/300
+Train loss: 0.041054, Train accuracy: 0.9877
+Val loss: 0.079037, Val accuracy: 0.9837
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 139.11s
+-------------------
+
+[INFO] EPOCH: 254/300
+Train loss: 0.043075, Train accuracy: 0.9867
+Val loss: 0.084109, Val accuracy: 0.9836
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 138.51s
+-------------------
+
+[INFO] EPOCH: 255/300
+Train loss: 0.039521, Train accuracy: 0.9874
+Val loss: 0.077566, Val accuracy: 0.9848
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 138.83s
+-------------------
+
+[INFO] EPOCH: 256/300
+Train loss: 0.042351, Train accuracy: 0.9868
+Val loss: 0.084423, Val accuracy: 0.9829
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 138.40s
+-------------------
+
+[INFO] EPOCH: 257/300
+Train loss: 0.041040, Train accuracy: 0.9873
+Val loss: 0.076158, Val accuracy: 0.9842
+Learning rate: 0.000008 -> 0.000008
+Epoch time: 138.72s
+-------------------
+
+[INFO] EPOCH: 258/300
+Train loss: 0.044156, Train accuracy: 0.9866
+Val loss: 0.073113, Val accuracy: 0.9843
+Learning rate: 0.000008 -> 0.000007
+Epoch time: 138.38s
+-------------------
+
+[INFO] EPOCH: 259/300
+Train loss: 0.041539, Train accuracy: 0.9869
+Val loss: 0.073909, Val accuracy: 0.9841
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.08s
+-------------------
+
+[INFO] EPOCH: 260/300
+Train loss: 0.043230, Train accuracy: 0.9864
+Val loss: 0.079869, Val accuracy: 0.9834
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.74s
+-------------------
+
+[INFO] EPOCH: 261/300
+Train loss: 0.040927, Train accuracy: 0.9870
+Val loss: 0.081350, Val accuracy: 0.9820
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.23s
+-------------------
+
+[INFO] EPOCH: 262/300
+Train loss: 0.041368, Train accuracy: 0.9870
+Val loss: 0.076303, Val accuracy: 0.9833
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.07s
+-------------------
+
+[INFO] EPOCH: 263/300
+Train loss: 0.040672, Train accuracy: 0.9878
+Val loss: 0.076875, Val accuracy: 0.9835
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.77s
+-------------------
+
+[INFO] EPOCH: 264/300
+Train loss: 0.042335, Train accuracy: 0.9871
+Val loss: 0.082565, Val accuracy: 0.9832
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.08s
+-------------------
+
+[INFO] EPOCH: 265/300
+Train loss: 0.042657, Train accuracy: 0.9873
+Val loss: 0.067839, Val accuracy: 0.9848
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.55s
+-------------------
+
+[INFO] EPOCH: 266/300
+Train loss: 0.040262, Train accuracy: 0.9882
+Val loss: 0.075240, Val accuracy: 0.9838
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 139.19s
+-------------------
+
+[INFO] EPOCH: 267/300
+Train loss: 0.040955, Train accuracy: 0.9883
+Val loss: 0.073678, Val accuracy: 0.9832
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.72s
+-------------------
+
+[INFO] EPOCH: 268/300
+Train loss: 0.041486, Train accuracy: 0.9875
+Val loss: 0.085609, Val accuracy: 0.9816
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.89s
+-------------------
+
+[INFO] EPOCH: 269/300
+Train loss: 0.041592, Train accuracy: 0.9875
+Val loss: 0.077282, Val accuracy: 0.9823
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 137.84s
+-------------------
+
+[INFO] EPOCH: 270/300
+Train loss: 0.038652, Train accuracy: 0.9880
+Val loss: 0.079981, Val accuracy: 0.9834
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.61s
+-------------------
+
+[INFO] EPOCH: 271/300
+Train loss: 0.037684, Train accuracy: 0.9880
+Val loss: 0.076570, Val accuracy: 0.9823
+Learning rate: 0.000007 -> 0.000007
+Epoch time: 138.31s
+-------------------
+
+[INFO] EPOCH: 272/300
+Train loss: 0.038981, Train accuracy: 0.9877
+Val loss: 0.075360, Val accuracy: 0.9822
+Learning rate: 0.000007 -> 0.000006
+Epoch time: 138.91s
+-------------------
+
+[INFO] EPOCH: 273/300
+Train loss: 0.040524, Train accuracy: 0.9877
+Val loss: 0.083611, Val accuracy: 0.9822
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.08s
+-------------------
+
+[INFO] EPOCH: 274/300
+Train loss: 0.037956, Train accuracy: 0.9880
+Val loss: 0.077321, Val accuracy: 0.9826
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 137.64s
+-------------------
+
+[INFO] EPOCH: 275/300
+Train loss: 0.036937, Train accuracy: 0.9889
+Val loss: 0.080477, Val accuracy: 0.9824
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 139.08s
+-------------------
+
+[INFO] EPOCH: 276/300
+Train loss: 0.040144, Train accuracy: 0.9875
+Val loss: 0.076163, Val accuracy: 0.9834
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.07s
+-------------------
+
+[INFO] EPOCH: 277/300
+Train loss: 0.040482, Train accuracy: 0.9874
+Val loss: 0.076275, Val accuracy: 0.9821
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.70s
+-------------------
+
+[INFO] EPOCH: 278/300
+Train loss: 0.041731, Train accuracy: 0.9874
+Val loss: 0.075598, Val accuracy: 0.9822
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.49s
+-------------------
+
+[INFO] EPOCH: 279/300
+Train loss: 0.040458, Train accuracy: 0.9870
+Val loss: 0.078056, Val accuracy: 0.9823
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 139.14s
+-------------------
+
+[INFO] EPOCH: 280/300
+Train loss: 0.039125, Train accuracy: 0.9875
+Val loss: 0.077003, Val accuracy: 0.9825
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.91s
+-------------------
+
+[INFO] EPOCH: 281/300
+Train loss: 0.038875, Train accuracy: 0.9878
+Val loss: 0.073045, Val accuracy: 0.9843
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 282/300
+Train loss: 0.038905, Train accuracy: 0.9877
+Val loss: 0.075539, Val accuracy: 0.9828
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 283/300
+Train loss: 0.036406, Train accuracy: 0.9891
+Val loss: 0.076619, Val accuracy: 0.9827
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 139.07s
+-------------------
+
+[INFO] EPOCH: 284/300
+Train loss: 0.039046, Train accuracy: 0.9883
+Val loss: 0.076945, Val accuracy: 0.9831
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.58s
+-------------------
+
+[INFO] EPOCH: 285/300
+Train loss: 0.039962, Train accuracy: 0.9878
+Val loss: 0.077938, Val accuracy: 0.9816
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.59s
+-------------------
+
+[INFO] EPOCH: 286/300
+Train loss: 0.038199, Train accuracy: 0.9881
+Val loss: 0.069724, Val accuracy: 0.9846
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.25s
+-------------------
+
+[INFO] EPOCH: 287/300
+Train loss: 0.038703, Train accuracy: 0.9883
+Val loss: 0.071065, Val accuracy: 0.9836
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 138.75s
+-------------------
+
+[INFO] EPOCH: 288/300
+Train loss: 0.039133, Train accuracy: 0.9881
+Val loss: 0.065239, Val accuracy: 0.9854
+Learning rate: 0.000006 -> 0.000006
+Epoch time: 139.12s
+-------------------
+
+[INFO] EPOCH: 289/300
+Train loss: 0.041076, Train accuracy: 0.9879
+Val loss: 0.076581, Val accuracy: 0.9831
+Learning rate: 0.000006 -> 0.000005
+Epoch time: 138.18s
+-------------------
+
+[INFO] EPOCH: 290/300
+Train loss: 0.041451, Train accuracy: 0.9874
+Val loss: 0.072791, Val accuracy: 0.9838
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.86s
+-------------------
+
+[INFO] EPOCH: 291/300
+Train loss: 0.039806, Train accuracy: 0.9882
+Val loss: 0.076866, Val accuracy: 0.9822
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.51s
+-------------------
+
+[INFO] EPOCH: 292/300
+Train loss: 0.038382, Train accuracy: 0.9881
+Val loss: 0.077927, Val accuracy: 0.9825
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 139.32s
+-------------------
+
+[INFO] EPOCH: 293/300
+Train loss: 0.037807, Train accuracy: 0.9882
+Val loss: 0.077118, Val accuracy: 0.9834
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.23s
+-------------------
+
+[INFO] EPOCH: 294/300
+Train loss: 0.037084, Train accuracy: 0.9887
+Val loss: 0.080131, Val accuracy: 0.9825
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.44s
+-------------------
+
+[INFO] EPOCH: 295/300
+Train loss: 0.040161, Train accuracy: 0.9872
+Val loss: 0.081395, Val accuracy: 0.9820
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.34s
+-------------------
+
+[INFO] EPOCH: 296/300
+Train loss: 0.039611, Train accuracy: 0.9881
+Val loss: 0.081468, Val accuracy: 0.9826
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.80s
+-------------------
+
+[INFO] EPOCH: 297/300
+Train loss: 0.038107, Train accuracy: 0.9880
+Val loss: 0.075446, Val accuracy: 0.9846
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.24s
+-------------------
+
+[INFO] EPOCH: 298/300
+Train loss: 0.039795, Train accuracy: 0.9877
+Val loss: 0.075165, Val accuracy: 0.9839
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 137.96s
+-------------------
+
+[INFO] EPOCH: 299/300
+Train loss: 0.035893, Train accuracy: 0.9888
+Val loss: 0.077949, Val accuracy: 0.9840
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.27s
+-------------------
+
+[INFO] EPOCH: 300/300
+Train loss: 0.036288, Train accuracy: 0.9891
+Val loss: 0.081047, Val accuracy: 0.9831
+Learning rate: 0.000005 -> 0.000005
+Epoch time: 138.48s
+-------------------
+
+[INFO] total time taken to train the model: 41570.98s
+[INFO] evaluating network...
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        60
+           1       0.99      0.98      0.98       720
+           2       0.97      1.00      0.99       660
+           3       0.99      1.00      0.99       420
+           4       1.00      0.96      0.98       690
+           5       0.99      1.00      0.99       720
+           6       1.00      1.00      1.00       270
+           7       1.00      0.99      1.00       210
+           8       1.00      0.99      1.00       150
+           9       1.00      1.00      1.00       360
+          10       0.98      0.98      0.98       390
+          11       0.97      1.00      0.98        60
+          12       0.98      1.00      0.99       750
+          13       0.94      1.00      0.97        90
+          14       0.97      0.87      0.92        90
+          15       0.99      0.98      0.99       120
+          16       0.99      0.99      0.99       150
+          17       1.00      0.97      0.98        90
+          18       1.00      0.98      0.99       480
+          19       0.99      0.85      0.91       180
+          20       1.00      0.98      0.99        60
+          21       0.99      0.98      0.99       150
+          22       0.97      1.00      0.98        90
+          23       0.99      0.97      0.98       450
+          24       0.97      0.96      0.97       150
+          25       1.00      0.99      0.99       270
+          26       0.98      1.00      0.99        60
+          27       0.99      0.99      0.99       210
+          28       1.00      0.99      1.00       120
+          29       0.99      1.00      0.99       390
+          30       0.97      0.93      0.95       120
+          31       0.90      0.93      0.92        60
+          32       0.95      1.00      0.97       690
+          33       0.99      0.76      0.86        90
+          34       1.00      0.98      0.99       660
+          35       0.87      0.98      0.92        90
+          36       0.88      1.00      0.94        60
+          37       0.95      0.99      0.97        90
+          38       0.96      1.00      0.98       630
+          39       0.98      0.97      0.97       150
+          40       0.99      0.99      0.99       450
+          41       1.00      0.99      0.99       450
+          42       0.99      1.00      0.99       480
+
+    accuracy                           0.98     12630
+   macro avg       0.98      0.97      0.98     12630
+weighted avg       0.98      0.98      0.98     12630
