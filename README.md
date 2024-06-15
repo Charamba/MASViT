@@ -68,7 +68,7 @@ Example of usage:
 ```sh 
 	python generate_score_map.py -m ../model/trained_model -img ../data/aff-GTSRB_el45_az45_01279.png -idx 0
 ```
-After executed the script, a input image and a score map plots are saved, like below:
+After executing the script, an input image and a score map plot are saved as shown below:
 
 <img align="center" height=200 src="img/plot_aff-GTSRB_el45_az45_01279.png"> <img align="center" height=200 src="img/plot_score_map_0_aff-GTSRB_el45_az45_01279.png"> 
 
