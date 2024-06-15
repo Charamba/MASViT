@@ -53,9 +53,9 @@ class AngleDropout(nn.Module):
 
 	Example:
 		>>> x = torch.ones(1,1,8,4).requires_grad_(True).cuda() 
-		>>> x # before of angle dropout
+		>>> x # before angle dropout
 		>>> drop_layer = AngleDropout(8, p=0.5).cuda()
-		>>> drop_layer(x) # after of angle dropout
+		>>> drop_layer(x) # after angle dropout
 
 	"""
 
