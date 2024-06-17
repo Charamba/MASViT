@@ -8,7 +8,7 @@ Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) publish
 
 - **data**: Suggested folder to save the datasets.
 - **img**: This folder contains the accuracy and loss plot figures of training and other images.
-- **logs**: This folder contains the logs of experiments for trainning and tests.
+- **logs**: This folder contains the logs of experiments for training and tests.
 - **model**: This folder contains the file with the trained model weights.
 - **src**: This folder contains the source code.
     - ***angle_dropout.py***: This script contains the implementation of Angle Dropout Layer class.
@@ -34,7 +34,7 @@ Install packages using pip with ***requirements.txt*** file.
 ## Usage
 
 ### Training
-For trainning, uses the ***train_model.py***. This executable script trains the MASViT model using GTSRB Train samples and validates with GTSRB Test samples.
+For training, uses the ***train_model.py***. This executable script trains the MASViT model using GTSRB Train samples and validates with GTSRB Test samples.
 
 Example of usage:
 ```sh
