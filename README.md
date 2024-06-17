@@ -19,8 +19,8 @@ Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) publish
     - ***train_model.py***: This executable script trains the MASViT model.
     - ***utils.py***: This script contains the implementation of some auxiliar functions.
 - ***LICENSE***: This file contains the license to use this software. 
-- ***README.md***: This file contains the description and usage instructions for this project.
-- ***requirements.txt***: This file contains a list of dependencies needed to work this project.
+- ***README.md***: This file contains the description and usage instructions for this software.
+- ***requirements.txt***: This file contains a list of dependencies needed to work this software.
 
 
 ## Instalation
