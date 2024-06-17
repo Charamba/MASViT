@@ -28,7 +28,7 @@ Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) publish
 Install packages using pip with requirements.txt file.
 
 ```sh
-    pip install -r requirements.txt
+	pip install -r requirements.txt
 ```
 
 ## Usage
@@ -57,7 +57,7 @@ file path (-l, --log), which contains the classification report of the test.
 
 Example of usage:
 ```sh 
-    python test_model_max_score.py -m ../model/trained_model -d ../data/proj-GTSRB/el45 -l test_fixed_centroid_proj-GTSRB-el45.log  
+	python test_model_max_score.py -m ../model/trained_model -d ../data/proj-GTSRB/el45 -l test_fixed_centroid_proj-GTSRB-el45.log  
 ```
 
 ### Generate Score Map
