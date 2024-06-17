@@ -81,7 +81,7 @@ All dataset samples used have dimensions of 48x48.
 **Note**: The datasets used in this project are not included in this code repository. The links to these dataset repositories will be available soon.
 
 ## License
-This project is licensed under the MIT License - see the ***LICENSE*** file for details.
+This software is licensed under the MIT License - see the ***LICENSE*** file for details.
 
 ## Reference
 If you find MASViT useful, please cite the following paper:
