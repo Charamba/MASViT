@@ -18,9 +18,9 @@ Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) publish
     - ***test_model_max_score.py***: This executable script tests MASViT using the Max Score approach.
     - ***train_model.py***: This executable script trains the MASViT model.
     - ***utils.py***: This script contains the implementation of some auxiliar functions.
-- ***LICENSE***: This file contains the license to use this software. 
-- ***README.md***: This file contains the description and usage instructions for this software.
-- ***requirements.txt***: This file contains a list of dependencies needed to work this software.
+- ***LICENSE***: This file contains the license to use this project. 
+- ***README.md***: This file contains the description and usage instructions for this project.
+- ***requirements.txt***: This file contains a list of dependencies needed to work this project.
 
 
 ## Instalation
@@ -81,7 +81,7 @@ All dataset samples used have dimensions of 48x48.
 **Note**: The datasets used in this project are not included in this code repository. The links to these dataset repositories will be available soon.
 
 ## License
-This software is licensed under the MIT License - see the ***LICENSE*** file for details.
+This project is licensed under the MIT License - see the ***LICENSE*** file for details.
 
 ## Reference
 If you find MASViT useful, please cite the following paper:
