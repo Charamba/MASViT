@@ -32,6 +32,10 @@ Install packages using pip with ***requirements.txt*** file.
 ```
 
 ## Usage
+Below is a demonstration of how to train and test MASViT, as well as how to generate and visualize the score maps.
+
+**NOTE**: To execute the following training and testing examples, ensure that you have downloaded the necessary datasets and saved them in the **data** folder.
+
 
 ### Training
 For training, uses the ***train_model.py***. This executable script trains the MASViT model using GTSRB Train samples and validates with GTSRB Test samples.
@@ -42,6 +46,7 @@ Example of usage:
 ```
 
 ### Tests
+There are two test approaches to uses with MASViT: Fixed Centroid and Max Score. 
 
 #### Fixed Centroid
 To use this approach, uses the ***test_model_fixed_centroid.py***. This executable script tests MASViT using the Fixed Centroid approach, accepting the following parameters as arguments: the path to the pretrained model weights file (-m, --model), the test dataset (-d, --dataset), and the log file path (-l, --log), which contains the classification report of the test.
@@ -68,7 +73,7 @@ Example of usage:
 ```sh 
 	python generate_score_map.py -m ../model/trained_model -img ../data/aff-GTSRB_el45_az45_01279.png -idx 0
 ```
-After executing the script, an input image and a score map plot are saved as shown below:
+After executing the script, the input image plot and a score map (corresponding to the chosen class index) are saved as shown below:
 
 <img align="center" height=200 src="img/plot_aff-GTSRB_el45_az45_01279.png"> <img align="center" height=200 src="img/plot_score_map_0_aff-GTSRB_el45_az45_01279.png"> 
 
