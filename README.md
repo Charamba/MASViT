@@ -32,10 +32,9 @@ Install packages using pip with ***requirements.txt*** file.
 ```
 
 ## Usage
-Below is a demonstration of how to train and test MASViT, as well as how to generate and visualize the score maps.
+Below is demonstrated how to train and to test MASViT, as well as how to generate and visualize the score maps.
 
-**NOTE**: To execute the following training and testing examples, ensure that you have downloaded the necessary datasets and saved them in the **data** folder.
-
+**NOTE**: To correctly execute the following training and testing examples, ensure that you have downloaded the necessary datasets and saved them in the **data** folder.
 
 ### Training
 For training, uses the ***train_model.py***. This executable script trains the MASViT model using GTSRB Train samples and validates with GTSRB Test samples.
