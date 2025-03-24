@@ -1,5 +1,5 @@
 # MASViT
-Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) published in NeurIPS 2024. 
+Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) published in Neural Computing and Applications 2025. 
 
 ## Contents
 
