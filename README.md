@@ -90,6 +90,6 @@ This project is licensed under the MIT License - see the ***LICENSE*** file for 
 ## Reference
 If you find MASViT useful, please cite the following paper:
 
-**Providing Projective and Affine Invariance for
-Recognition by Multi-Angle-Scale Vision Transformer** - NeurIPS 2024
+Luiz G. Charamba, Nivan Ferreira, Silvio Melo, **Providing Projective and Affine Invariance for Recognition by Multi-Angle-Scale Vision Transformer**, 
+*Neural Computing & Applications*, Springer Nature, 2025 (Status: Accepted).
 
