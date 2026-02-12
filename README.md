@@ -84,7 +84,7 @@ All dataset samples used have dimensions of 48x48.
 
 ### Data Repositories 
 The datasets used in this project are not included in this code repository.
-The official archived version of the Aff-GTSRB and Proj-GTSRB datasets are available at **Figshare** <code style="color : aqua">(DOI: 10.6084/m9.figshare.30742799)</code>.
+The official archived version of the Aff-GTSRB and Proj-GTSRB datasets are available at **Figshare** <code>(DOI: 10.6084/m9.figshare.30742799)</code>.
 For accessibility and community benchmarking, the dataset is also available on **Kaggle**.
 
 - Figshare: https://doi.org/10.6084/m9.figshare.30742799
