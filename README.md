@@ -82,7 +82,13 @@ for recognizing affine and projective deformations across different severity lev
 aff-GTSRB and proj-GTSRB datasets groups, each representing distinct deformation categories.
 All dataset samples used have dimensions of 48x48.
 
-**Note**: The datasets used in this project are not included in this code repository. The links to these dataset repositories will be available soon.
+### Data Repositories 
+The datasets used in this project are not included in this code repository.
+The official archived version of the Aff-GTSRB and Proj-GTSRB datasets are available at **Figshare** (DOI: 10.6084/m9.figshare.30742799).
+For accessibility and community benchmarking, the dataset is also available on **Kaggle**.
+
+- Figshare: https://doi.org/10.6084/m9.figshare.30742799
+- Kaggle: https://www.kaggle.com/datasets/luizgustavorcharamba/aff-gtsrb-and-proj-gtsrb/data
 
 ## License
 This project is licensed under the MIT License - see the ***LICENSE*** file for details.
