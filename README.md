@@ -87,8 +87,8 @@ The datasets used in this project are not included in this code repository.
 The official archived version of the Aff-GTSRB and Proj-GTSRB datasets are available at **Figshare** <code>(DOI: 10.6084/m9.figshare.30742799)</code>.
 For accessibility and community benchmarking, the dataset is also available on **Kaggle**.
 
-- Figshare: https://doi.org/10.6084/m9.figshare.30742799
-- Kaggle: https://www.kaggle.com/datasets/luizgustavorcharamba/aff-gtsrb-and-proj-gtsrb/data
+- **Figshare:** https://doi.org/10.6084/m9.figshare.30742799
+- **Kaggle:** https://www.kaggle.com/datasets/luizgustavorcharamba/aff-gtsrb-and-proj-gtsrb/data
 
 ## License
 This project is licensed under the MIT License - see the ***LICENSE*** file for details.
