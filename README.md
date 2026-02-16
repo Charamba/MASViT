@@ -44,7 +44,7 @@ Example of usage:
 	python train_model.py 
 ```
 
-### Tests
+### Testing
 There are two test approaches to uses with MASViT: Fixed Centroid and Max Score. 
 
 #### Fixed Centroid
