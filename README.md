@@ -1,5 +1,5 @@
 # MASViT
-Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) published in Neural Computing and Applications 2025. 
+Official implementation of Multi-Angle-Scale Vision Transformer (MASViT) published in *Neural Computing and Applications*, 2026, https://doi.org/10.1007/s00521-025-11821-2. 
 
 ## Contents
 
@@ -96,6 +96,5 @@ This project is licensed under the MIT License - see the ***LICENSE*** file for 
 ## Reference
 If you find MASViT useful, please cite the following paper:
 
-Luiz G. Charamba, Nivan Ferreira, Silvio Melo, **Providing Projective and Affine Invariance for Recognition by Multi-Angle-Scale Vision Transformer**, 
-*Neural Computing & Applications*, Springer Nature, 2025 (Status: Accepted).
+Charamba, L.G.d.R., Junior, N.R.F. & Melo, S.d.B. **Providing projective and affine invariance for recognition by Multi-Angle-Scale Vision Transformer**. *Neural Computing & Applications* 38, 77, Springer Nature, 2026. https://doi.org/10.1007/s00521-025-11821-2
 
