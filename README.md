@@ -107,7 +107,8 @@ Charamba, L.G.d.R., Junior, N.R.F. & Melo, S.d.B. **Providing projective and aff
   volume={38},
   number={77},
   year={2026},
-  publisher={Springer Nature}
+  publisher={Springer Nature},
+  doi={https://doi.org/10.1007/s00521-025-11821-2}
 }
 
 ```
