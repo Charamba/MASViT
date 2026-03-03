@@ -103,9 +103,9 @@ Charamba, L.G.d.R., Junior, N.R.F. & Melo, S.d.B. **Providing projective and aff
 @article{charamba2026providing,
   title={Providing projective and affine invariance for recognition by Multi-Angle-Scale Vision Transformer},
   author={Charamba, Luiz Gustavo da Rocha and Junior, Nivan Roberto Ferreira and Melo, Silvio de Barros},
-  journal={Neural Computing and Applications},
+  journal={Neural Computing \& Applications},
   volume={38},
-  page={77},
+  number={77},
   year={2026},
   publisher={Springer Nature}
 }
