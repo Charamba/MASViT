@@ -98,3 +98,17 @@ If you find MASViT useful, please cite the following paper:
 
 Charamba, L.G.d.R., Junior, N.R.F. & Melo, S.d.B. **Providing projective and affine invariance for recognition by Multi-Angle-Scale Vision Transformer**. *Neural Computing & Applications* 38, 77, Springer Nature, 2026. https://doi.org/10.1007/s00521-025-11821-2
 
+```latex 
+
+@article{charamba2026providing,
+  title={Providing projective and affine invariance for recognition by Multi-Angle-Scale Vision Transformer},
+  author={Charamba, Luiz Gustavo da Rocha and Junior, Nivan Roberto Ferreira and Melo, Silvio de Barros},
+  journal={Neural Computing and Applications},
+  volume={38},
+  page={77},
+  year={2026},
+  publisher={Springer Nature}
+}
+
+```
+
